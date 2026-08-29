@@ -8,8 +8,8 @@ class Settings(BaseSettings):
     """All app settings, loaded from .env file or environment variables."""
 
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://widget_user:widget_pass@localhost:5432/widget_platform"
-    DATABASE_URL_SYNC: str = "postgresql://widget_user:widget_pass@localhost:5432/widget_platform"
+    DATABASE_URL: str = "postgresql+asyncpg://widget_user:widget_pass@localhost:5433/widget_platform"
+    DATABASE_URL_SYNC: str = "postgresql://widget_user:widget_pass@localhost:5433/widget_platform"
 
     # Auth
     SECRET_KEY: str = "change-me-to-a-random-64-char-string"

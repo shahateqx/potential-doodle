@@ -33,7 +33,7 @@ class Widget(Base):
         nullable=False, index=True
     )
     widget_type: Mapped[WidgetType] = mapped_column(
-        SQLEnum(WidgetType), nullable=False, default=WidgetType.CONTACT_FORM
+        SQLEnum(WidgetType, values_callable=lambda obj: [e.value for e in obj]), nullable=False, default=WidgetType.CONTACT_FORM
     )
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str] = mapped_column(Text, nullable=True, default="")
