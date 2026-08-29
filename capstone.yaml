@@ -1,0 +1,30 @@
+# capstone.yaml — Evaluator Manifest
+run: docker compose up --build
+seed: python seed.py
+test: pytest tests/ -v
+base_url: http://localhost:8000
+
+endpoints:
+  # Auth
+  - POST /api/auth/register
+  - POST /api/auth/login
+
+  # Widget Management (authenticated)
+  - GET    /api/widgets
+  - POST   /api/widgets
+  - GET    /api/widgets/{id}
+  - PUT    /api/widgets/{id}
+  - DELETE /api/widgets/{id}
+  - GET    /api/widgets/{id}/snippet
+
+  # Public Widget Delivery
+  - GET /widget.js
+  - GET /api/widgets/{id}/config
+
+  # Public Submission
+  - POST /api/submissions
+
+  # Dashboard (authenticated)
+  - GET /api/dashboard/submissions
+  - GET /api/dashboard/stats
+  - GET /api/dashboard/widgets/{id}/stats
